@@ -1,15 +1,16 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
  
 const Console = () => {
-    const [savedLogs, setsavedLogs] = useState([]);
-    // let savedLogs:[string] = ["test"];
-    let curry = f => {
-    let out = log => {
-        setsavedLogs(savedLogs=>[...savedLogs,log])
-        f(log);
-    }
+
+    useEffect(()=>{let curry = f => { let out = log => {setsavedLogs(savedLogs=>[...savedLogs,log]) 
+        console.error(log)
+        f(log);}
     return out}
-    console.log = curry(console.log)
+
+    console.log = curry(console.log)},[])
+    const [savedLogs, setsavedLogs] = useState([]);
+    //use currying to wrap console.log 
+    
     return (
         <div>
             {savedLogs.map((log:string,index:number)=>(
