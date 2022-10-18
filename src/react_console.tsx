@@ -5,7 +5,7 @@ const Console = () => {
     // let savedLogs:[string] = ["test"];
     let curry = f => {
     let out = log => {
-        setsavedLogs([...savedLogs,log])
+        setsavedLogs(savedLogs=>[...savedLogs,log])
         f(log);
     }
     return out}
