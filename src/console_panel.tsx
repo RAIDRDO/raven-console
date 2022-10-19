@@ -13,9 +13,9 @@ const Console_panel = ({savedLogs,setToggled}) => {
             </button>
             </div>
             <div className="overflow-auto scrollbar h-80">
-                {savedLogs.map((log:string,index:number)=>(
+                {savedLogs.map((log)=>(
                     <div className='border-solid border-l-8 border-l-green-500 border-y border-slate-700 hover:bg-slate-700 '>
-                    <p  key={index} className="ml-2 font-mono text-white">{log}</p> 
+                    <p  key={log.index} className="ml-2 font-mono text-white">{log.log_msg}</p> 
                     </div>
             ))}
             </div>
