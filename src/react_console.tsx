@@ -55,7 +55,7 @@ intercept()
     
     return (
         <div>
-        {Toggled ===true ? (<Console_panel setToggled={setToggled} savedLogs={savedLogs}></Console_panel>) : (<Console_fab logcount = {savedLogs.length} setToggled={setToggled}></Console_fab>)}
+        {Toggled ===true ? (<Console_panel setToggled={setToggled} savedlogs={savedLogs}></Console_panel>) : (<Console_fab logcount = {savedLogs.length} setToggled={setToggled}></Console_fab>)}
 
         </div>
     );

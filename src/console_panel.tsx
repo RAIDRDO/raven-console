@@ -1,6 +1,6 @@
 import Console_log_item from "./console_log_item";
 import { Logs } from "./shared/types";
-const Console_panel = ({savedLogs,setToggled}:{savedLogs:Logs,setToggled:Function}) => {
+const Console_panel = ({savedlogs,setToggled}:{savedlogs:Logs[],setToggled:Function}) => {
     return ( 
         <div className={'container shadow-sm mx-auto rounded-lg bg-gray-900 z-99999 fixed bottom-0 right-0 left-0 max-w-6xl h-96 max-h-96 transition-all duration-150 ease-in-out  '}>
             <div className='bg-gray-800 h-16 sticky top-0 rounded-lg'>
@@ -15,7 +15,7 @@ const Console_panel = ({savedLogs,setToggled}:{savedLogs:Logs,setToggled:Functio
             </button>
             </div>
           <div className="overflow-auto scrollbar h-80">
-                {savedLogs.map((log:Logs)=>(
+                {savedlogs.map((log:Logs)=>(
                     <Console_log_item {...log}></Console_log_item>
                   
             ))}
