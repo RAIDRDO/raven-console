@@ -1,3 +1,4 @@
+import Console_log_item from "./console_log_item";
 const Console_panel = ({savedLogs,setToggled}) => {
     return ( 
         <div className={'container shadow-sm mx-auto rounded-lg bg-gray-900 z-99999 fixed bottom-0 right-0 left-0 max-w-6xl h-96 max-h-96 transition-all duration-150 ease-in-out  '}>
@@ -12,11 +13,10 @@ const Console_panel = ({savedLogs,setToggled}) => {
 
             </button>
             </div>
-            <div className="overflow-auto scrollbar h-80">
+          <div className="overflow-auto scrollbar h-80">
                 {savedLogs.map((log)=>(
-                    <div className='border-solid border-l-8 border-l-green-500 border-y border-slate-700 hover:bg-slate-700 '>
-                    <p  key={log.index} className="ml-2 font-mono text-white">{log.log_msg}</p> 
-                    </div>
+                    <Console_log_item {...log}></Console_log_item>
+                  
             ))}
             </div>
            

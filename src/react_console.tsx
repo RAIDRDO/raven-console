@@ -2,8 +2,10 @@ import {useState,useEffect} from 'react';
 import Console_fab from './console_fab';
 import Console_panel from './console_panel' 
 import objectInspect from "object-inspect";
+import { nanoid } from 'nanoid';
 const Console = () => {
-
+const [savedLogs, setsavedLogs] = useState([]);
+const [Toggled, setToggled] = useState(true);
 useEffect(()=>{
 function intercept(){
     const oldLog = console.log;
@@ -14,25 +16,25 @@ function intercept(){
 
     console.log = function (...args) {
         const formatedlogs = objectInspect(...args)
-        setsavedLogs(savedLogs=>[...savedLogs,{index:savedLogs.length,log_type:"log",log_msg:formatedlogs}])      
+        setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"log",log_msg:formatedlogs}])      
         oldLog.call(console, ...args);
     };
 
     console.warn = function (...args) {
         const formatedlogs = objectInspect(...args)
-        setsavedLogs(savedLogs=>[...savedLogs,{index:savedLogs.length,log_type:"warn",log_msg:formatedlogs}])      
+        setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"warn",log_msg:formatedlogs}])      
         oldWarn.call(console, ...args);
     };
 
     console.info = function (...args) {
         const formatedlogs = objectInspect(...args)
-        setsavedLogs(savedLogs=>[...savedLogs,{index:savedLogs.length,log_type:"info",log_msg:formatedlogs}])      
+        setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"info",log_msg:formatedlogs}])      
         oldInfo.call(console, ...args);
     };
 
     console.error = function (...args) {
         const formatedlogs = objectInspect(...args)
-        setsavedLogs(savedLogs=>[...savedLogs,{index:savedLogs.length,log_type:"error",log_msg:formatedlogs}])      
+        setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"error",log_msg:formatedlogs}])      
         oldError.call(console, ...args);
     };
 
@@ -44,9 +46,7 @@ function intercept(){
 };
 intercept()
 },[])
-    const [savedLogs, setsavedLogs] = useState([]);
-    const [Toggled, setToggled] = useState(true);
-    //use currying to wrap console.log 
+
     
     
     return (
