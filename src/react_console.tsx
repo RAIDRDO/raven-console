@@ -1,15 +1,12 @@
-import {useState,useEffect} from 'react';
+import {useState,useEffect,useLayoutEffect} from 'react';
 import Console_fab from './console_fab';
 import Console_panel from './console_panel' 
 import objectInspect from "object-inspect";
 import { nanoid } from 'nanoid';
 import {Logs} from './shared/types'
 const Console = () => {
-
-
-
 const [savedLogs, setsavedLogs] = useState<Logs[]>([]);
-const [Toggled, setToggled] = useState(true);
+const [Toggled, setToggled] = useState(false);
 useEffect(()=>{
 function intercept(){
     const oldLog = console.log;
@@ -17,7 +14,12 @@ function intercept(){
     const oldInfo = console.info;
     const oldError = console.error;
     // const oldClear = console.clear
-
+    
+    console.error = function (...args) {
+        const formatedlogs = objectInspect(...args)
+        setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"error",log_msg:formatedlogs}])      
+        oldError.call(console, ...args);
+    };
     console.log = function (...args) {
         const formatedlogs = objectInspect(...args)
         setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"log",log_msg:formatedlogs}])      
@@ -36,19 +38,7 @@ function intercept(){
         oldInfo.call(console, ...args);
     };
 
-    console.error = function (...args) {
-        const formatedlogs = objectInspect(...args)
-        setsavedLogs(savedLogs=>[...savedLogs,{index:nanoid(),log_type:"error",log_msg:formatedlogs}])      
-        oldError.call(console, ...args);
-    };
-
-    // console.clear = function () {
-    //    setsavedLogs([])    
-    //    oldClear();
-    // };
-
-};
-intercept()
+};intercept()
 },[])
 
     

@@ -15,8 +15,8 @@ const Console_panel = ({savedlogs,setToggled}:{savedlogs:Logs[],setToggled:Funct
             </button>
             </div>
           <div className="overflow-auto scrollbar h-80">
-                {savedlogs.map((log:Logs)=>(
-                    <Console_log_item {...log}></Console_log_item>
+                {savedlogs.map((log:Logs,index:number)=>(
+                    <Console_log_item key={index} {...log}></Console_log_item>
                   
             ))}
             </div>
