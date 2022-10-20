@@ -1,4 +1,5 @@
-const Console_fab = ({logcount,setToggled}) => {
+
+const Console_fab = ({logcount,setToggled}:{logcount:number,setToggled: (value: boolean) => void;}) => {
     return ( 
         <div className="z-99999 fixed bottom-0 right-0 ">
             <button onClick={()=>{setToggled(true)}} className="rounded-full w-16 h-16 mb-8 mr-8 border-0 bg-slate-900 hover:bg-slate-800  focus:bg-gray-700 shadow-lg shadow-slate-200">

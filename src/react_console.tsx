@@ -3,8 +3,12 @@ import Console_fab from './console_fab';
 import Console_panel from './console_panel' 
 import objectInspect from "object-inspect";
 import { nanoid } from 'nanoid';
+import {Logs} from './shared/types'
 const Console = () => {
-const [savedLogs, setsavedLogs] = useState([]);
+
+
+
+const [savedLogs, setsavedLogs] = useState<Logs[]>([]);
 const [Toggled, setToggled] = useState(true);
 useEffect(()=>{
 function intercept(){

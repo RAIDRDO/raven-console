@@ -1,4 +1,7 @@
-const Console_log_item = ({index,log_type,log_msg}) => {
+import {Logs} from './shared/types'
+
+
+const Console_log_item = ({index,log_type,log_msg}:Logs) => {
     return ( 
         <>
            
