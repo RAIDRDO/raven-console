@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   // useEffect(()=>{console.error("rendered second")},[])
   return (
-    <div className="App">
+<div className="App">
 <button
     onClick={() => { console.log("testing log");}}>
     test console.log   
