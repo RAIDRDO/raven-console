@@ -1,10 +1,10 @@
-import {useState,useEffect,useLayoutEffect} from 'react';
+import {useState,useEffect} from 'react';
 // import Console_fab from './console_fab';
 // import Console_panel from './console_panel' 
 import objectInspect from "object-inspect";
 import { nanoid } from 'nanoid';
-import {Logs} from './shared/types'
-
+import {Logs} from '../shared/types'
+import '../index.css'
 const Console_log_item = ({index,log_type,log_msg}:Logs) => {
     return ( 
         <>
@@ -131,4 +131,4 @@ function intercept(){
     );
 }
  
-export default Console;
+export  {Console};

@@ -3,8 +3,7 @@
   "description": "React console component for debugging web apps when chrome devtools is not allowed to be used",
   "version": "0.1.4",
   "private": false,
-  "main": "src/index.ts",
- 
+  "main": "src/components/index.ts",
   "files": [
     "dist",
     "README.md"

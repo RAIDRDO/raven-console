@@ -4,21 +4,21 @@
 
 
 @layer utilities {
-  .scrollbar::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
+    .scrollbar::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
 
-  .scrollbar::-webkit-scrollbar-track {
-    background: #e2e8f0;
-  }
+    .scrollbar::-webkit-scrollbar-track {
+        background: #e2e8f0;
+    }
 
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: #64748b;
-    border: 2px solid #f1f5f9;
-  }
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: #64748b;
+        border: 2px solid #f1f5f9;
+    }
 
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #475569;
-  }
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #475569;
+    }
 }
